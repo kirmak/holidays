@@ -1,0 +1,32 @@
+<html>
+<head>
+    <link rel="shortcut icon" type="image/png" href="jasmine/lib/jasmine-2.5.2/jasmine_favicon.png">
+    <link rel="stylesheet" type="text/css" href="jasmine/lib/jasmine-2.5.2/jasmine.css">
+
+    <script type="text/javascript" src="jasmine/lib/jasmine-2.5.2/jasmine.js"></script>
+    <script type="text/javascript" src="jasmine/lib/jasmine-2.5.2/jasmine-html.js"></script>
+    <script type="text/javascript" src="jasmine/lib/jasmine-2.5.2/boot.js"></script>
+    
+    <script type="text/javascript" src="../script/holidays.js"></script>
+</head>
+<body>
+<script>
+
+describe("Default configuration tests", function() {
+
+    it("Should contain New Year Day", function() {
+        expect(holidays.getHolidays('2016-01-01', '2016-01-01')).toContain(new Date('2016-01-01'));
+    });
+    
+    it("Should not contain Christmas", function() {
+        expect(holidays.getHolidays('2016-01-01', '2016-05-01')).not.toContain(new Date('2016-12-25'));
+    });
+    
+    it("Year should contain 11 holidays", function() {
+        expect(holidays.getHolidays('2016-01-01', '2016-12-31').length).toBe(11);
+    });
+});
+
+</script>
+</body>
+</html>
